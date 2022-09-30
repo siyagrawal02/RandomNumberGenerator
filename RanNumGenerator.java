@@ -12,76 +12,76 @@ import java.util.Random;
  and lower limit, generates a random number and gives the output.
  */
 
-class RNG extends JFrame {
+class RandomNumberGenerator extends JFrame {
     //variable creations
-    JLabel label1;
+    JLabel upperLimitLabel;
     JTextField textfield1;
-    JLabel label2;
+    JLabel lowerLimitLabel;
     JTextField textfield2, textfield3;
-    JButton bInt, bDouble, bLong;
-    JLabel label3;
+    JButton buttonInt, buttonDouble, buttonLong;
+    JLabel outputLabel;
 
-    public RNG() {
+    public RandomNumberGenerator() {
         setTitle("Random Number Generator");
         setResizable(false);
         setLayout(new FlowLayout());
 
-        label1 = new JLabel("Enter the upper limit:");
+        upperLimitLabel = new JLabel("Enter the upper limit:");
         textfield1 = new JTextField(8);
 
-        label2 = new JLabel("Enter the lower limit:");
+        lowerLimitLabel = new JLabel("Enter the lower limit:");
         textfield2 = new JTextField(8);
 
-        bInt = new JButton("Int");
-        bDouble = new JButton("Double");
-        bLong = new JButton("Long");
+        buttonInt = new JButton("Int");
+        buttonDouble = new JButton("Double");
+        buttonLong = new JButton("Long");
 
-        label3 = new JLabel("Random No:");
+        outputLabel = new JLabel("Random No:");
         textfield3 = new JTextField(15);
 
         //adding the elements to the frame
-        add(label1);
+        add(upperLimitLabel);
         add(textfield1);
-        add(label2);
+        add(lowerLimitLabel);
         add(textfield2);
-        add(bInt);
-        add(bDouble);
-        add(bLong);
-        add(label3);
+        add(buttonInt);
+        add(buttonDouble);
+        add(buttonLong);
+        add(outputLabel);
         add(textfield3);
 
-        bInt.addActionListener(new ActionListener() {
+        buttonInt.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
                 Random randomObject = new Random();
-                double num1 = Double.parseDouble(textfield1.getText());
-                double num2 = Double.parseDouble(textfield2.getText());
+                double firstNumber = Double.parseDouble(textfield1.getText());
+                double secondNumber = Double.parseDouble(textfield2.getText());
 
-                int value = (int) randomObject.doubles(num1, num2).findFirst().getAsDouble();
+                int value = (int) randomObject.doubles(firstNumber, secondNumber).findFirst().getAsDouble();
                 textfield3.setText("" + value);
             }
         });
 
-        bDouble.addActionListener(new ActionListener() {
+        buttonDouble.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
                 Random randomObject = new Random();
-                double num1 = Double.parseDouble(textfield1.getText());
-                double num2 = Double.parseDouble(textfield2.getText());
+                double firstNumber = Double.parseDouble(textfield1.getText());
+                double secondNumber = Double.parseDouble(textfield2.getText());
 
-                Double value = randomObject.doubles(num1, num2).findFirst().getAsDouble();
+                Double value = randomObject.doubles(firstNumber, secondNumber).findFirst().getAsDouble();
                 textfield3.setText("" + value);
             }
         });
 
-        bLong.addActionListener(new ActionListener() {
+        buttonLong.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
                 Random randomObject = new Random();
-                double num1 = Double.parseDouble(textfield1.getText());
-                double num2 = Double.parseDouble(textfield2.getText());
+                double firstNumber = Double.parseDouble(textfield1.getText());
+                double secondNumber = Double.parseDouble(textfield2.getText());
 
-                Long value = (long) randomObject.doubles(num1, num2).findFirst().getAsDouble();
+                Long value = (long) randomObject.doubles(firstNumber, secondNumber).findFirst().getAsDouble();
                 textfield3.setText("" + value);
             }
         });
@@ -97,7 +97,7 @@ class RNG extends JFrame {
 public class RanNumGenerator {
     public static void main(String[] args) {
         {
-            new RNG();
+            new RandomNumberGenerator();
         }
     }
 }
